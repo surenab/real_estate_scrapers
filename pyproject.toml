@@ -1,0 +1,33 @@
+[project]
+name = "real-estate-scrapers"
+version = "0.1.0"
+description = "Real Estate Scrapers"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.3",
+    "httpx>=0.28.1",
+    "lxml>=5.3.1",
+    "playwright>=1.50.0",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+    "selenium>=4.29.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "dotenv-linter>=0.6.0",
+    "flake8>=7.1.2",
+    "isort>=6.0.1",
+    "mypy>=1.15.0",
+    "ruff>=0.9.9",
+]
+test = [
+    "pytest>=8.3.5",
+    "pytest-mock>=3.14.0",
+    "responses>=0.25.6",
+]
+
+[tool.uv]
+default-groups = ["dev", "test"]
