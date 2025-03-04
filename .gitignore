@@ -11,3 +11,6 @@ wheels/
 prod
 dev
 test
+
+# ENVS
+.env
