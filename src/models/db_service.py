@@ -2,7 +2,6 @@ import sys
 import os
 import dataset
 from dataclasses import asdict
-from datetime import datetime
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
 
@@ -182,62 +181,3 @@ class SQLService:
             self.insert_price_history(ph, realestate_id)
 
         return realestate_id
-
-
-# ----------------------
-# Example Usage
-# ----------------------
-
-
-def main():
-    db_connect = DBConnect()
-    sql_service = SQLService(db_connect)
-
-    address = Address(
-        address1="123 Main St",
-        city="Anytown",
-        postal_code="12345",
-        county="AnyCounty",
-        country="CountryX",
-        latitude=40.7128,
-        longitude=-74.0060,
-        local_authority="LocalAuth",
-    )
-
-    seller = Seller(
-        seller_id=1,
-        name="John Doe",
-        phone="555-1234",
-        branch="Branch A",
-        address=address,
-        profile_image="http://example.com/profile.jpg",
-    )
-
-    image = RelaEstateImage(url="http://example.com/image1.jpg", size_name="size720x480")
-
-    ph1 = PriceHistory(price=100.0, timestamp=datetime.now(), current=True, source="source1")
-
-    parent_category = Category("Property")
-
-    category = Category("Rental", parent=parent_category)
-
-    realestate = RealEstate(
-        title="Sample Property",
-        seo_title="Sample SEO Title",
-        publish_date=datetime.now(),
-        property_type="Apartment",
-        address=address,
-        seller=seller,
-        real_estate_images=[image],
-        category=category,
-        url="http://example.com/property",
-        price_history=[ph1],
-        date_of_construction=datetime.now(),
-    )
-
-    realestate_id = sql_service.insert_real_estate(realestate)
-    print(f"Inserted RealEstate with id: {realestate_id}")
-
-
-if __name__ == "__main__":
-    main()
