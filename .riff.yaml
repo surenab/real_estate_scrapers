@@ -1,0 +1,10 @@
+# Riff configuration for code quality checks
+checks:
+  - id: flake8
+    command: flake8 .
+    include:
+      - '**/*.py'
+  - id: black
+    command: black --check .
+    include:
+      - '**/*.py'

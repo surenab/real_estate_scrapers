@@ -19,7 +19,7 @@ cd <project-folder>
 
 ### 3️⃣ **Create a Virtual Environment**
 ```sh
-uv venv .venv
+uv sync
 ```
 
 ### 4️⃣ **Activate the Virtual Environment**
